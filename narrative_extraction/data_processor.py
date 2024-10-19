@@ -4,12 +4,14 @@ from functools import partial
 import pandas as pd
 from code_lookup import CodeLookup
 
+codeLookup = CodeLookup()
 
-def precompute_lookups(lookup):
+
+def precompute_lookups():
     categories = ["GENDER", "RACE", "BDYPT", "DIAG", "DISP", "LOC", "FIRE", "PROD"]
     lookups = {}
     for category in categories:
-        category_data = lookup.data.get(category, pd.DataFrame())
+        category_data = codeLookup.data.get(category, pd.DataFrame())
         if not category_data.empty:
             lookups[category] = dict(
                 zip(
@@ -20,20 +22,19 @@ def precompute_lookups(lookup):
     return lookups
 
 
-def process_chunk(chunk, lookup, lookups, columns_to_process, keep_original):
+def process_chunk(chunk, lookups, columns_to_process, keep_original):
     for column in columns_to_process:
-        category = lookup.get_category_for_field(column)
+        category = codeLookup.get_category_for_field(column)
         description = chunk[column].map(lookups.get(category, {})).fillna("")
         if keep_original:
-            chunk[f"{column}_Description"] = description
+            chunk[f"{column}_Desc"] = description
         else:
             chunk[column] = description  # .where(description != "", chunk[column])
     return chunk
 
 
 def process_neiss_data(input_file, output_file, keep_original=True, chunk_size=100000):
-    lookup = CodeLookup()
-    lookups = precompute_lookups(lookup)
+    lookups = precompute_lookups()
 
     # Columns to process
     columns_to_process = [
@@ -58,7 +59,6 @@ def process_neiss_data(input_file, output_file, keep_original=True, chunk_size=1
     # Create a partial function with fixed arguments
     process_chunk_partial = partial(
         process_chunk,
-        lookup=lookup,
         lookups=lookups,
         columns_to_process=columns_to_process,
         keep_original=keep_original,
@@ -87,5 +87,5 @@ def process_neiss_data(input_file, output_file, keep_original=True, chunk_size=1
 
 if __name__ == "__main__":
     input_file = "./data/consolidated_cleaned_neiss_2014_2023.csv"
-    output_file = "./data/processed_cleaned_neiss_2014_2023.csv"
+    output_file = "./data/code_replaced_neiss_2014_2023.csv"
     process_neiss_data(input_file, output_file, False)

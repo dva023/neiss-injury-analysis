@@ -74,30 +74,3 @@ class CodeLookup:
             return "HISP"
         else:
             return field
-
-
-if __name__ == "__main__":
-    neiss_lookup = CodeLookup()
-
-    print(neiss_lookup.get_description("GENDER", 1))
-    print(neiss_lookup.get_description("RACE", 1))
-    print(neiss_lookup.get_description("BDYPT", 31))
-    print(neiss_lookup.get_description("DIAG", 53))
-    print(neiss_lookup.get_description("DISP", 1))
-    print(neiss_lookup.get_description("LOC", 0))
-    print(neiss_lookup.get_description("FIRE", 0))
-    print(neiss_lookup.get_description("PROD", 1211))
-
-    sample_case = {
-        "sex": 1,
-        "race": 1,
-        "body_part": 31,
-        "diagnosis": 53,
-        "disposition": 1,
-        "location": 0,
-        "fire_involvement": 0,
-        "product_1": 1211,
-    }
-    results = neiss_lookup.lookup_multiple(**sample_case)
-    for field, description in results.items():
-        print(f"{field}: {description}")

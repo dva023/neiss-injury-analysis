@@ -4,7 +4,11 @@ import random
 import sys
 
 
-def sample_csv(input_file, output_file, num_samples):
+def sample_csv(input_file, num_samples):
+
+    # Generate output filename
+    base, ext = os.path.splitext(input_file)
+    output_file = f"{base}_{num_samples}_samples{ext}"
 
     if os.path.exists(output_file):
         os.remove(output_file)
@@ -39,15 +43,14 @@ def sample_csv(input_file, output_file, num_samples):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: python script.py <input_file> <output_file> <number_of_lines>")
+    if len(sys.argv) != 3:
+        print("Usage: python script.py <input_file> <number_of_lines>")
         sys.exit(1)
 
     input_file = sys.argv[1]
-    output_file = sys.argv[2]
-    num_samples = int(sys.argv[3])
+    num_samples = int(sys.argv[2])
 
-    sample_csv(input_file, output_file, num_samples)
+    sample_csv(input_file, num_samples)
     print(
-        f"Randomly selected {num_samples} lines have been written to {output_file} while preserving original order"
+        f"Randomly selected {num_samples} lines have been extracted from {input_file}"
     )

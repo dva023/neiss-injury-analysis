@@ -44,7 +44,7 @@ def sample_csv(input_file, num_samples):
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("Usage: python script.py <input_file> <number_of_lines>")
+        print("Usage: python sample_csv.py <input_file> <number_of_lines>")
         sys.exit(1)
 
     input_file = sys.argv[1]

@@ -17,25 +17,19 @@ from code_lookup import CodeLookup
 codeLookup = CodeLookup()
 
 
-def precompute_lookups():
-    categories = ["GENDER", "RACE", "BDYPT", "DIAG", "DISP", "LOC", "FIRE", "PROD"]
-    lookups = {}
-    for category in categories:
-        category_data = codeLookup.data.get(category, pd.DataFrame())
-        if not category_data.empty:
-            lookups[category] = dict(
-                zip(
-                    category_data["Starting value for format"],
-                    category_data["Format value label"].str.split(" - ").str[-1],
-                )
-            )
-    return lookups
-
-
 def process_chunk(chunk, lookups, columns_to_process, keep_original):
     for column in columns_to_process:
         category = codeLookup.get_category_for_field(column)
-        description = chunk[column].map(lookups.get(category, {})).fillna("")
+        # if column is age and value >= 200, % 200 / 12
+        if column == "Age":
+            description = (
+                chunk[column]
+                .map(lambda x: round((x % 200) / 12, 2) if x >= 200 else x)
+                .fillna("")
+            )
+        else:
+            description = chunk[column].map(lookups.get(category, {})).fillna("")
+
         if keep_original:
             chunk[f"{column}_Desc"] = description
         else:
@@ -44,10 +38,10 @@ def process_chunk(chunk, lookups, columns_to_process, keep_original):
 
 
 def process_neiss_data(input_file, output_file, keep_original=True, chunk_size=100000):
-    lookups = precompute_lookups()
+    lookups = codeLookup.get_lookups()
 
-    # Columns to process
     columns_to_process = [
+        "Age",
         "Sex",
         "Race",
         "Other_Race",

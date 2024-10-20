@@ -1,3 +1,7 @@
+"""
+Generate new field names by extracting information from the `narrative` fields.
+"""
+
 import json
 from collections import Counter
 from typing import Dict, List

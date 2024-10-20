@@ -1,10 +1,8 @@
+"""
+Processes the dataset to generate new fields for each data record using AI models.
+"""
 import csv
-import json
 import multiprocessing
-import os
-import random
-import readline
-from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from typing import Dict, List
 
@@ -15,7 +13,6 @@ from libs.constants import (
     MODEL_GPT_4_MINI,
     MODEL_LOCAL,
     NEW_COLUMN_FIELDS,
-    PROMPT_CREATE_NEW_FIELDS,
     PROMPT_EXTRACT_FIELDS,
 )
 from libs.gen_model import send_message

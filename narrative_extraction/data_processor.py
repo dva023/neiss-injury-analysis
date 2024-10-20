@@ -1,11 +1,5 @@
 """
-Processes the datasets by replacing numeric codes with their corresponding descriptions.
-
-Parameters:
-- input_file: Path to the input NEISS CSV file.
-- output_file: Path where the processed CSV file will be saved.
-- keep_original: Boolean flag to determine whether to keep original values (True) or replace them (False).
-- chunk_size: Number of rows to process at a time (default is 100,000).
+Replace numeric codes with their corresponding descriptions and dump to a new CSV file.
 """
 
 import multiprocessing as mp

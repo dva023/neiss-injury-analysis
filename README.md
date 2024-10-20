@@ -5,7 +5,8 @@ The NEISS Injury Analysis project aims to provide insights into injury trends an
 ## Table of Contents
 
 - [Installation](#installation)
-- [Contributing](#contributing)
+- [Scripts](#scripts)
+- [Data](#data)
 
 ## Installation
 
@@ -29,7 +30,7 @@ Here are some of the key notebooks/scripts included in the project:
   - `create_new_fields.py`: Generate new field names by extracting information from the `narrative` fields.
   - `generate_new_fields.py`: Generate new fields for each data record using AI models, append the fields by the end of columns.
 
-## DATA
+## Data
 
 - `./data/code_replaced_neiss_2014_2023_100_samples.csv`
   - 100 random examples picked from the `code_replaced_neiss_2014_2023.csv`. This file replaced all of the numeric codes with the corresponding descriptions from the FMT file.

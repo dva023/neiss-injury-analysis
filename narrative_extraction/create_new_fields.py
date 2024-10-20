@@ -1,9 +1,4 @@
-import csv
 import json
-import multiprocessing
-import os
-import random
-import readline
 from collections import Counter
 from typing import Dict, List
 
@@ -16,21 +11,6 @@ from libs.constants import (
     PROMPT_CREATE_NEW_FIELDS,
 )
 from libs.gen_model import send_message
-
-# from concurrent.futures import ThreadPoolExecutor
-
-# def process_data():
-#     companies = [
-#         company for company in companies if str(company["id"]) not in company_ids
-#     ]
-#     threads = 8
-#     with ThreadPoolExecutor(max_workers=threads) as executor:
-#         [
-#             executor.submit(
-#                 download_report, str(company["id"]), country_code, portfolio_id
-#             )
-#             for company in companies
-#         ]
 
 
 def split_samples(filename: str, num_chunks: int) -> List[Dict]:

@@ -36,32 +36,67 @@ e.g.
 Respond in JSON format: {{"proposed_columns": [{{"column_name": "xxx", "extraction": "xxx", "example": "xxx"}},...]}}
 """
 
-PROMPT_EXTRACT_CATEGORIES = """You are a Data Analytics at Lightspeed who help to choose the best evalution for the conversation between agents and customers.
-    Here is the masked conversation:
-    ###
-    {}
-    ###
+NEW_COLUMN_FIELDS = """
+{
+  "column_name": "injury_mechanism",
+  "extraction": "Use keyword matching and pattern recognition to identify common injury mechanisms like 'fell', 'cut', 'burned', 'jumped', etc.",
+  "example": "From '12YR F FELL ON STAIRSDX CHI', extract 'FELL'",
+},
+{
+  "column_name": "location_of_injury",
+  "extraction": "Identify and extract phrases that indicate where the injury occurred, such as 'at home', 'at school', etc.",
+  "example": "From '83YOF WITH STRAIN TO NECK AFTER FALLING DOWN THREE STEPS', extract 'STEPS'.",
+},
+{
+  "column_name": "injury_type",
+  "extraction": "Use keywords to categorize the type of injury, which might include 'fracture', 'laceration', 'burn', 'strain', etc.",
+  "example": "From '8 YOM WITH ELECTRICAL BURN FROM STICKING PAPER CUP INTO ELECTRICALOUTLET DXBURNS FINGER', extract 'ELECTRICAL BURN'.",
+},
+{
+  "column_name": "activity_at_injury",
+  "extraction": "Identify phrases that describe the activity the individual was performing at the time of injury, such as 'playing basketball', 'lifting boxes', or 'doing karate'.",
+  "example": "From '30YF ACC CUT LT MIDDLE FINGER ON A KNIFE CUTTING MEATLAC', extract 'CUTTING METAL'",
+}
+"""
 
-    Here are the evaluations from different models:
-    {}
+PROMPT_EXTRACT_FIELDS = """
+You are tasked with extracting information from a narrative field to generate 4 new fields. The entire data record will be provided including narrative field, and you must analyze it to extract relevant information for each new field.
 
-    Please provide your answer with the best evaluation in JSON format strictly, make sure all fields are filled. Correct the fields by your best knowledge if there are any mistakes.
-    For example:
-    {{
-        customer_sentiment: integer # from 1 to 5
-        reason_for_customer_sentiment: string
-        conversation_sentiment: integer # from 1 to 5
-        reason_for_conversation_sentiment: string
-        intent: string
-        problem: string
-        solved: integer # 0 means not solved, 1 means solved
-        need_follow_up: integer 0 means no, 1 means yes
-        root_cause: string
-        suggested_solution: string
-        product: string
-        category: string
-        keywords: array
-        model_name: string # new field, the model name you choose
-        reason_for_choice: string # new field, the reason why you choose this model
-    }}
+Here is the data record you will be working with:
+{data}
+
+Your task is to extract information for the following 4 new fields:
+
+{columns}
+
+If any information is unclear or missing for a particular field, use "unknown" as the value.
+
+Examples:
+1. For the narrative "12YR F FELL ON STAIRS DX CHI":
+   - injury_mechanism: "fell"
+   - location_of_injury: "stairs"
+   - injury_type: "chi" (Closed Head Injury)
+   - activity_at_injury: "unknown"
+
+2. For the narrative "8 YOM WITH ELECTRICAL BURN FROM STICKING PAPER CUP INTO ELECTRICAL OUTLET DX BURNS FINGER":
+   - injury_mechanism: "sticking object into outlet"
+   - location_of_injury: "unknown"
+   - injury_type: "electrical burn"
+   - activity_at_injury: "sticking paper cup into electrical outlet"
+
+Remember to focus only on the information provided in the given narrative. Do not make assumptions or add information that is not explicitly stated or strongly implied in the text.
+
+
+Provide your output in the following JSON format:
+
+<output>
+{{
+    "injury_mechanism": "xxx",
+    "location_of_injury": "xxx",
+    "injury_type": "xxx",
+    "activity_at_injury": "xxx"
+}}
+</output>
+
+Now, analyze the provided narrative and extract the required information for each field.
 """

@@ -8,11 +8,11 @@ from ollama import Client as OllamaClient
 from openai import OpenAI
 
 from .constants import (
-    CLAUDE_MODEL_NAME,
-    GEMINI_MODEL_NAME,
-    GPT_4_MINI_MODEL_NAME,
-    GPT_4_MODEL_NAME,
-    LOCAL_MODEL_NAME,
+    MODEL_CLAUDE,
+    MODEL_GEMINI,
+    MODEL_GPT_4,
+    MODEL_GPT_4_MINI,
+    MODEL_LOCAL,
 )
 
 load_dotenv()
@@ -75,13 +75,13 @@ def call_local_api(model_name, message):
 def send_message(model, message):
 
     try:
-        if model in (GPT_4_MODEL_NAME, GPT_4_MINI_MODEL_NAME):
+        if model in (MODEL_GPT_4, MODEL_GPT_4_MINI):
             return call_openai_api(model, message)
-        elif model == GEMINI_MODEL_NAME:
+        elif model == MODEL_GEMINI:
             return call_gemini_api(model, message)
-        elif model == LOCAL_MODEL_NAME:
+        elif model == MODEL_LOCAL:
             return call_local_api(model, message)
-        elif model == CLAUDE_MODEL_NAME:
+        elif model == MODEL_CLAUDE:
             return call_claude_api(model, message)
         else:
             raise ValueError("Model not supported.")
@@ -94,10 +94,10 @@ def send_message(model, message):
 #     test_message = "Count numbers from 1 to 10. Respond in JSON format."
 #
 #     models = [
-#         GPT_4_MINI_MODEL_NAME,
-#         GEMINI_MODEL_NAME,
-#         CLAUDE_MODEL_NAME,
-#         LOCAL_MODEL_NAME,
+#         MODEL_GPT_4_MINI,
+#         MODEL_GEMINI,
+#         MODEL_CLAUDE,
+#         MODEL_LOCAL,
 #     ]
 #     for model in models:
 #         print(f"\nTesting {model}:")

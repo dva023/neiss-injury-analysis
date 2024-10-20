@@ -8,12 +8,12 @@ from collections import Counter
 from typing import Dict, List
 
 from libs.constants import (
-    CLAUDE_MODEL_NAME,
-    GEMINI_MODEL_NAME,
-    GPT_4_MINI_MODEL_NAME,
-    GPT_4_MODEL_NAME,
-    LOCAL_MODEL_NAME,
-    PROMPT_CREATE_CATEGORIES,
+    MODEL_CLAUDE,
+    MODEL_GEMINI,
+    MODEL_GPT_4,
+    MODEL_GPT_4_MINI,
+    MODEL_LOCAL,
+    PROMPT_CREATE_NEW_FIELDS,
 )
 from libs.gen_model import send_message
 
@@ -49,7 +49,7 @@ def split_samples(filename: str, num_chunks: int) -> List[Dict]:
 
 
 def extract_columns(dataset, model_name: str) -> List[Dict]:
-    message = PROMPT_CREATE_CATEGORIES.format(dataset=dataset)
+    message = PROMPT_CREATE_NEW_FIELDS.format(dataset=dataset)
     response = send_message(model_name, message)
     print(response)
     return response["proposed_columns"]  # type: ignore
@@ -81,7 +81,7 @@ def main():
     filename = "./data/code_replaced_neiss_2014_2023_100_samples.csv"
     chunks = split_samples(filename, 10)
 
-    model_name = GEMINI_MODEL_NAME
+    model_name = MODEL_GEMINI
 
     results = []
     for chunk in chunks:

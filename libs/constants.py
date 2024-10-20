@@ -1,10 +1,10 @@
-GPT_4_MINI_MODEL_NAME = "gpt-4o-mini"
-GPT_4_MODEL_NAME = "gpt-4o"
-GEMINI_MODEL_NAME = "gemini-1.5-flash-002"
-LOCAL_MODEL_NAME = "llama3.2"  # 3b
-CLAUDE_MODEL_NAME = "claude-3-5-sonnet-20240620"
+MODEL_GPT_4_MINI = "gpt-4o-mini"
+MODEL_GPT_4 = "gpt-4o"
+MODEL_GEMINI = "gemini-1.5-flash-002"
+MODEL_LOCAL = "llama3.2"  # 3b
+MODEL_CLAUDE = "claude-3-5-sonnet-20240620"
 
-PROMPT_CREATE_CATEGORIES = """
+PROMPT_CREATE_NEW_FIELDS = """
 
 You are an expert data analyst specializing in healthcare information systems. Your task is to analyze a sample from the National Electronic Injury Surveillance System (NEISS) dataset and propose **new** columns that can be extracted from the narrative field. This analysis is part of a larger project to enhance the dataset's structure and facilitate more detailed injury analysis.
 

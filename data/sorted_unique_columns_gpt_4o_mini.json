@@ -1,0 +1,344 @@
+[
+  {
+    "column_name": "injury_mechanism",
+    "extraction": "Use keyword matching and pattern recognition to identify common injury mechanisms like 'fell', 'cut', 'burned', 'jumped', etc.",
+    "example": "From '12YR F FELL ON STAIRSDX CHI', extract 'FELL'",
+    "frequency": 10
+  },
+  {
+    "column_name": "location_of_injury",
+    "extraction": "Identify and extract phrases that indicate where the injury occurred, such as 'at home', 'at school', etc.",
+    "example": "From '83YOF WITH STRAIN TO NECK AFTER FALLING DOWN THREE STEPS', extract 'STEPS'.",
+    "frequency": 7
+  },
+  {
+    "column_name": "injury_type",
+    "extraction": "Use keywords to categorize the type of injury, which might include 'fracture', 'laceration', 'burn', 'strain', etc.",
+    "example": "From '8 YOM WITH ELECTRICAL BURN FROM STICKING PAPER CUP INTO ELECTRICALOUTLET DXBURNS FINGER', extract 'ELECTRICAL BURN'.",
+    "frequency": 5
+  },
+  {
+    "column_name": "activity_at_injury",
+    "extraction": "Identify phrases that describe the activity the individual was performing at the time of injury, such as 'playing basketball', 'lifting boxes', or 'doing karate'.",
+    "example": "From '30YF ACC CUT LT MIDDLE FINGER ON A KNIFE CUTTING MEATLAC', extract 'CUTTING METAL'",
+    "frequency": 4
+  },
+  {
+    "column_name": "body_part_injured",
+    "extraction": "Extract the specific body part that was injured, which is often mentioned directly, such as 'ELBOW', 'HEAD', 'FINGER', etc.",
+    "example": "From '4 YOF INJURED ELBOW WHILE PLAYING FELL FROM BED AT HOME', extract 'ELBOW'",
+    "frequency": 3
+  },
+  {
+    "column_name": "product_involved",
+    "extraction": "Identify any products or objects mentioned in the narrative that are associated with the injury, extracting items typically listed before injuries.",
+    "example": "From 'FELL ON STAIRSDX CHI', extract 'STAIRS'.",
+    "frequency": 3
+  },
+  {
+    "column_name": "activity_at_time_of_injury",
+    "extraction": "Identify and extract activities during which the injury occurred, often introduced by terms such as 'while', 'during', or 'when'.",
+    "example": "From '5 YOM FELL OUT OF BED ONTO CARPET AT HOME TODAY DX SCALP CONTUSION', extract 'OUT OF BED'.",
+    "frequency": 2
+  },
+  {
+    "column_name": "age_of_injury",
+    "extraction": "Extract age information directly mentioned in the narratives, focusing on numeric values representing the age of the individual.",
+    "example": "From '95YOM WAS TRYING TO MOVE A MATTRESS AND FELL ONTO CHEST', extract '95YOM'",
+    "frequency": 2
+  },
+  {
+    "column_name": "circumstances_of_injury",
+    "extraction": "Determine any circumstances around the injury, often indicated by phrases that give context to how the injury happened.",
+    "example": "From '10YOM LAC SCALP PLAYING BASKETBALL', extract 'PLAYING BASKETBALL'",
+    "frequency": 2
+  },
+  {
+    "column_name": "environment",
+    "extraction": "Identify and extract the environment or setting where the injury occurred, such as 'HOME', 'SCHOOL', 'SPORTS', etc., using contextual keywords in the narrative.",
+    "example": "From '4 YOF INJURED ELBOW WHILE PLAYING FELL FROM BED AT HOME DX LEFT NURSEMAIDS ELBOW', extract 'HOME'",
+    "frequency": 2
+  },
+  {
+    "column_name": "injured_body_part",
+    "extraction": "Extract the primary body part affected, which often follows phrases like 'injured', 'injured to', or simply states the body part.",
+    "example": "From '90 YOFPT LOST BALANCE AND FELL TO FLOOR AT HOME DX RIB FX', extract 'RIB'.",
+    "frequency": 2
+  },
+  {
+    "column_name": "injury_description",
+    "extraction": "Extract the type of injury as described in the narrative, often following 'DX' or 'DX' with diagnosis-related terms (e.g., 'STRAIN', 'FRACTURE').",
+    "example": "From '36YOM WITH KNEE SPRAIN PLAYING FOOTBALL DX KNEE SPRAIN', extract 'KNEE SPRAIN' as the injury description.",
+    "frequency": 2
+  },
+  {
+    "column_name": "specific_product_involved",
+    "extraction": "Extract specific products mentioned in the narrative that are linked with the injury, using keywords like 'table', 'knife', or 'toy'.",
+    "example": "From '24 YR OLD MALE PUNCHED GLASS DOOR IN ANGER AND LAC WRIST WITH TENDON INJ', extract 'GLASS DOOR'",
+    "frequency": 2
+  },
+  {
+    "column_name": "time_of_injury",
+    "extraction": "Identify terms indicating time, such as 'during', 'while', or specific times like 'afternoon', 'evening', etc.",
+    "example": "From '19MOF CO ARM PAIN DURING EASTER EGG HUNT', extract 'DURING EASTER EGG HUNT'",
+    "frequency": 2
+  },
+  {
+    "column_name": "activity_involved",
+    "extraction": "Identify recreational or sports activities mentioned in the narrative, focusing on keywords such as 'running', 'jumping', 'soccer', 'biking', etc.",
+    "example": "From '51 YOM RIDING A BIKE AND FELL OFF HIT ARM DX ELBOW CONTUSION', extract 'RIDING A BIKE'",
+    "frequency": 1
+  },
+  {
+    "column_name": "additional_comments",
+    "extraction": "Capture any additional comments or remarks that may add context but are not directly related to the injury; often found at the end of narratives.",
+    "example": "From 'NO DX AT THIS TIME', extract 'NO DX AT THIS TIME' as additional comments.",
+    "frequency": 1
+  },
+  {
+    "column_name": "age_at_injury",
+    "extraction": "Extract the age at the time of the injury, typically represented at the beginning of the narrative as 'X Y/O'.",
+    "example": "From '21MOM JUMPED OFF OF COUCHING LANDING ON FLOOR HAS NOT BEEN MOVING ARM DX CLOSED LEFT HUMERAL FX ***', extract '21'.",
+    "frequency": 1
+  },
+  {
+    "column_name": "age_bracket",
+    "extraction": "Determine the age bracket (e.g., 'Child', 'Adult', 'Senior') based on the age provided, which helps categorize the injury based on demographics.",
+    "example": "From '66 YOM WAS PLOWING SNOW GOT OFF HIS TRACTOR WHEN HE DEVELOPED CHEST PAIN', extract 'Senior'",
+    "frequency": 1
+  },
+  {
+    "column_name": "age_of_individual",
+    "extraction": "Extract and confirm the age of the individual involved in the incident, often formatted as 'YY' or specified directly in the narrative.",
+    "example": "From '36YOF FELL HIT COFFEE TABLE AT HOMEDX HEAD INJURY', extract '36'",
+    "frequency": 1
+  },
+  {
+    "column_name": "age_of_patient",
+    "extraction": "Parse the age information provided at the beginning of each narrative, typically formatted as '[age number][Y|M|F|O]', converting into a numerical value.",
+    "example": "From '40 YOM WITH BILATERAL EYE PAIN AND REDNESS', extract '40'",
+    "frequency": 1
+  },
+  {
+    "column_name": "age_related_circumstance",
+    "extraction": "Identify references to age-specific behaviors or conditions mentioned in the narrative, such as 'child playing', 'elderly lifting', etc.",
+    "example": "From '4YOF WAS PLAYING OUTSIDE', extract 'CHILD PLAYING'",
+    "frequency": 1
+  },
+  {
+    "column_name": "associated_activity",
+    "extraction": "Identify and extract the activity being performed when the injury occurred, such as 'PLAYING', 'PLANTING', 'COOKING', etc.",
+    "example": "From '8YOM WAS IN A TOY CAR CAR FLIPPED AND ARM CAUGHT UNDERNEATH WHILE CAR KEPT GOING ELBOW DISLOCATION', extract 'PLAYING' as the associated activity.",
+    "frequency": 1
+  },
+  {
+    "column_name": "body_mechanism_type",
+    "extraction": "Extract information related to body mechanisms such as 'internal injury', 'laceration', 'strain/sprain', etc.",
+    "example": "From 'LUMBAR DISC HERNIATION42YOM CO BACK PAIN', extract 'LUMBAR DISC HERNIATION'",
+    "frequency": 1
+  },
+  {
+    "column_name": "cause_of_injury",
+    "extraction": "Look for phrases which describe the circumstances leading to the injury, often starting with descriptors like 'while', 'after', or related to activities.",
+    "example": "From '16 YOM INJURED ANKLE WHILE RUNNING DX ANKLE SPRAIN', extract 'WHILE RUNNING'.",
+    "frequency": 1
+  },
+  {
+    "column_name": "classification_of_injury",
+    "extraction": "Identify the type of injury classification based on common medical terms such as 'fracture', 'laceration', 'internal injury', etc.",
+    "example": "From '75 YR OLD MALE FELL OFF BIKE OVER HANDLEBARS WTH HEMATOMA TO HEAD AND FX C7', extract 'FRACTURE'",
+    "frequency": 1
+  },
+  {
+    "column_name": "context_of_injury",
+    "extraction": "Capture contextual information surrounding the injury such as personal circumstances or environmental conditions, often found in descriptive phrases.",
+    "example": "From '19 YOM PUNCHED THE HARD SURFACE OF HIS COUCH IN ANGER AFTER ARGUING WITH FRIENDS', extract 'ARGUING WITH FRIENDS' as the context.",
+    "frequency": 1
+  },
+  {
+    "column_name": "device_or_object_involved",
+    "extraction": "Identify any objects or equipment mentioned in the narrative that were involved in the injury, such as 'bed', 'bike', 'bottle cap', etc.",
+    "example": "From '2YOF COMPLAINS OF PAIN IN RIGHT ELBOW CHILD WAS JUMPING ON THE BED AND FELL OFF LANDING ON OUTSTRETCHED ARM DX CONTUSION OF ELBOW', extract 'BED'",
+    "frequency": 1
+  },
+  {
+    "column_name": "disposition",
+    "extraction": "Extract the final outcome of the injury as described in the narrative, such as 'TREATED/EXAMINED AND RELEASED'.",
+    "example": "From '90 YOFPT LOST BALANCE AND FELL TO FLOOR', extract 'TREATED/EXAMINED AND RELEASED'.",
+    "frequency": 1
+  },
+  {
+    "column_name": "disposition_status",
+    "extraction": "Extract the disposition status from the narrative that indicates the outcome of the injury, such as 'TREATED AND RELEASED', 'HOSPITALIZED', etc.",
+    "example": "From 'TREATED/EXAMINED AND RELEASED', extract 'TREATED/EXAMINED AND RELEASED'",
+    "frequency": 1
+  },
+  {
+    "column_name": "emotional_state",
+    "extraction": "Extract references to the emotional state of the individual at the time of injury, indicated by words such as 'anger', 'fear', 'panic', etc., often related to the incident.",
+    "example": "From 'PUNCHED IN ANGER', extract 'ANGER' as the emotional state.",
+    "frequency": 1
+  },
+  {
+    "column_name": "equipment_involved",
+    "extraction": "Look for items or equipment involved in the injury, often referenced directly in the narrative (e.g., 'TOILET', 'COUCH', 'ATV').",
+    "example": "From '33YOM PRESENTS AFTER AN ATV ACCIDENT HELMET LOC PT DOES NOT REMEMBER THE EVENTS', extract 'ATV' as the equipment involved.",
+    "frequency": 1
+  },
+  {
+    "column_name": "final_diagnosis",
+    "extraction": "Extract the final diagnosis or medical condition stated at the end of the narrative, often prefixed by 'DX' or 'DIAGNOSED WITH'.",
+    "example": "From '7MOF FOUND WITH A PLASTIC BOTTLE CAP IN MOUTH DX ASPIRATED FOREIGN BODY', extract 'ASPIRATED FOREIGN BODY'",
+    "frequency": 1
+  },
+  {
+    "column_name": "further_medical_attention",
+    "extraction": "Indicate whether further medical attention was implied or noted in the narrative, using keywords such as 'ADMITTED', 'REFERRAL', or 'TRANSFERRED'.",
+    "example": "From 'TREATED AND ADMITTED/HOSPITALIZED', extract 'ADMITTED/HOSPITALIZED'",
+    "frequency": 1
+  },
+  {
+    "column_name": "gender_of_patient",
+    "extraction": "Identify and extract the gender mentioned in the narrative, often formatted as 'YOF', 'YOM' or 'FEMALE', 'MALE'.",
+    "example": "From '12YOF PLAYING HOCKEY AND INJURED KNEE', extract 'FEMALE'",
+    "frequency": 1
+  },
+  {
+    "column_name": "gender_specific_details",
+    "extraction": "Look for gender-specific phrases that might indicate the gender of the individual involved, usually embedded in the narratives like 'boy', 'girl', 'man', or 'woman'.",
+    "example": "From '39YOF CO LT RIB PAI AFTER SHE SLIPPED', extract 'FEMALE'",
+    "frequency": 1
+  },
+  {
+    "column_name": "injury_severity",
+    "extraction": "Classify statements regarding the severity of the injury, which can be inferred from terms such as 'TREATED AND ADMITTED', 'EXAMINED AND RELEASED', or conditions like 'CHI', 'PAIN'.",
+    "example": "From 'TREATED AND ADMITTED/HOSPITALIZED', extract 'ADMITTED' to indicate the injury severity.",
+    "frequency": 1
+  },
+  {
+    "column_name": "item_involved",
+    "extraction": "Identify objects or products involved in the injury by extracting nouns or phrases related to specific items mentioned in the narrative, looking for patterns like 'using', 'with', or products' names.",
+    "example": "From '7YOF STUCK A CHRISTMAS LIGHTBULB FUSE IN HER LEFT EAR DX FOREIGN BODY IN EAR', extract 'CHRISTMAS LIGHTBULB FUSE'",
+    "frequency": 1
+  },
+  {
+    "column_name": "location_type",
+    "extraction": "Identify the general type of location where the injury took place, like 'HOME', 'SPORTS', or 'WORK', often seen at the end of narrative statements.",
+    "example": "From 'TREATED/EXAMINED AND RELEASED AT HOME', extract 'HOME' as the location type.",
+    "frequency": 1
+  },
+  {
+    "column_name": "machinery_involved",
+    "extraction": "Identify mention of any machinery or equipment involved in the incident, as it is often specific in the narrative and provides important context.",
+    "example": "From 'WAS PLOWING SNOW GOT OFF HIS TRACTOR', extract 'TRACTOR'",
+    "frequency": 1
+  },
+  {
+    "column_name": "patient_conditional_context",
+    "extraction": "Extract any explanations of the patient's condition or context prior to the injury if mentioned, such as 'felt immediate pain', 'was previously healthy', etc.",
+    "example": "From 'PT FELT IMEDIATE PAIN IN L KNEE', extract 'FELT IMMEDIATE PAIN'",
+    "frequency": 1
+  },
+  {
+    "column_name": "patient_description",
+    "extraction": "Extract descriptors related to the patient, such as age, gender, and race by identifying patterns of demographic information in the narratives.",
+    "example": "From '14 YO FEMALE HIT IN EUE WITH PHONE CHARGER DX BLUNT EYE TRAUMA', extract '14 YO FEMALE'",
+    "frequency": 1
+  },
+  {
+    "column_name": "potential_contributing_factor",
+    "extraction": "Look for contextual phrases that indicate a potential contributor to the injury, such as 'not wearing protection', 'distracted', etc.",
+    "example": "From 'NOT WEARING EYE PROTECTION', extract 'NOT WEARING PROTECTION'",
+    "frequency": 1
+  },
+  {
+    "column_name": "recipient_of_care",
+    "extraction": "Extract phrases that indicate who received the care or treatment, such as 'treated', 'examined', 'released'.",
+    "example": "From 'TREATED/EXAMINED AND RELEASED', extract 'TREATED/EXAMINED AND RELEASED'",
+    "frequency": 1
+  },
+  {
+    "column_name": "related_activity",
+    "extraction": "Extract activities or events related to the injury by identifying keywords such as 'playing', 'using', 'during', etc.",
+    "example": "From '9 YOF JUMPED OFF HER BUNK BED INJURED L GREAT TOE DX SPRAIN', extract 'JUMPED OFF HER BUNK BED'",
+    "frequency": 1
+  },
+  {
+    "column_name": "severity_indication",
+    "extraction": "Search for phrases that indicate the severity of the injury, such as 'seriously injured', 'minor cut', 'acute', etc.",
+    "example": "From 'DX CHI', extract 'ACUTE'",
+    "frequency": 1
+  },
+  {
+    "column_name": "severity_indicator",
+    "extraction": "Extract information that indicates the severity of the injury, often implied by phrases like 'TREATED/EXAMINED AND RELEASED' or 'LEFT WITHOUT BEING SEEN'.",
+    "example": "From 'TREATED/EXAMINED AND RELEASED', extract 'TREATED'",
+    "frequency": 1
+  },
+  {
+    "column_name": "severity_of_injury",
+    "extraction": "Categorize the severity of the injury by identifying keywords related to the treatment or condition, such as 'treated', 'examined', 'surgery', etc.",
+    "example": "From 'TREATED/EXAMINED AND RELEASED', extract 'TREATED/EXAMINED'",
+    "frequency": 1
+  },
+  {
+    "column_name": "sex_of_injured",
+    "extraction": "Extract the gender of the individual mentioned, often found at the beginning of the narrative.",
+    "example": "From '21MOM JUMPED OFF OF COUCH', extract 'FEMALE'.",
+    "frequency": 1
+  },
+  {
+    "column_name": "source_of_injury",
+    "extraction": "Identify objects, persons, or conditions that contributed to the injury, like 'table', 'bicycle', 'floor', etc.",
+    "example": "From 'FELL AGAINST A POLE', extract 'pole'",
+    "frequency": 1
+  },
+  {
+    "column_name": "specific_activity",
+    "extraction": "Identify and extract specific activities during which the injury occurred, often indicated by phrases such as 'while' or 'during'.",
+    "example": "From '22YOM PUNCHED A WALL VS DOOR IN ANGER DX HAND PAIN', extract 'PUNCHED A WALL' as the specific activity.",
+    "frequency": 1
+  },
+  {
+    "column_name": "specific_injury_type",
+    "extraction": "Extract details about the specific injury type that may be noted in the narrative, such as 'fracture', 'laceration', or 'contusion', often preceded by context about the injury.",
+    "example": "From '74YOM FELL OFF OF HIS BICYCLE LANDING ONTO HIS BUTTOCKS DX CONTUSION TO BUTTOCKS', extract 'CONTUSION'",
+    "frequency": 1
+  },
+  {
+    "column_name": "specific_object_involved",
+    "extraction": "Look for mentions of specific objects or products involved in the injury, such as 'mattress', 'bicycle', 'hammers', etc.",
+    "example": "From 'HEAD INJURY 8YOF PLAYING OUTSIDE HAMMER FELL OUT OF TREE STRUCK HEAD', extract 'HAMMER'",
+    "frequency": 1
+  },
+  {
+    "column_name": "substance_involved",
+    "extraction": "Identify mentions of any substances involved, such as drugs or alcohol, often indicated by terms like 'alcohol', 'drugs', or specific items related to intoxication.",
+    "example": "From '46 YOM SP HEAD INJURY 4 DAYS AGO CONSUMING ALCOHOL', extract 'ALCOHOL'",
+    "frequency": 1
+  },
+  {
+    "column_name": "symptoms_present",
+    "extraction": "Identify symptoms mentioned in the narratives, focusing on phrases or keywords indicating conditions prior to treatment, such as 'pain', 'nausea', 'swelling', etc.",
+    "example": "From 'EVAL OF HA NAUSEA SINCE BEING HIT IN THE HD IN GYM CLASS', extract 'HA NAUSEA'",
+    "frequency": 1
+  },
+  {
+    "column_name": "symptoms_reported",
+    "extraction": "Extract any symptoms reported in the narrative that might indicate the nature of the injury or medical condition, such as 'chest pain', 'dizziness', etc.",
+    "example": "From '66YOM PASSED OUT FALLING INTO SNOW HEART ATTACK', extract 'CHEST PAIN'",
+    "frequency": 1
+  },
+  {
+    "column_name": "time_before_intervention",
+    "extraction": "Identify time references in the narrative relating to when the injury occurred in relation to seeking treatment, often denoted with phrases like 'hour prior to arrival'.",
+    "example": "From '19 YOM PUNCHED THE HARD SURFACE OF HIS COUCH IN ANGER AFTER ARGUING WITH FRIENDS OVER A VIDEO GAME 1 HOUR PRIOR TO ARRIVAL', extract '1 HOUR' as the time before intervention.",
+    "frequency": 1
+  },
+  {
+    "column_name": "time_since_injury",
+    "extraction": "Analyze phrases that indicate a temporal aspect surrounding the injury, such as 'days ago', 'yesterday', or 'prior', to determine the time elapsed since the injury occurred.",
+    "example": "From '75YOF SLIP AND FALL ON WET FLOOR 5 DAYS PRIOR AND CO HITTING HEAD ON FLOOR', extract '5 DAYS PRIOR'",
+    "frequency": 1
+  }
+]

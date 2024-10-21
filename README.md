@@ -32,6 +32,8 @@ Here are some of the key notebooks/scripts included in the project:
 
 ## Data
 
+- `consolidated_cleaned_neiss_2014_2023.csv`
+  - This is hosted in Sharepoints. Please download from [here](https://gtvault.sharepoint.com/sites/cse6242groupprojectchat/Shared%20Documents/Forms/AllItems.aspx?isAscending=true&id=%2Fsites%2Fcse6242groupprojectchat%2FShared%20Documents%2FData%5FCleaning&sortField=LinkFilename&viewid=2e31cc94%2D7f82%2D4cfa%2D9eb0%2D7f181e03962f)
 - `code_replaced_neiss_2014_2023.csv`
   - You need to download the `consolidated_cleaned_neiss_2014_2023.csv` from Sharepoints and then run the script `./narrative_extraction/data_processor.py` to generate this file.
   - This file replaced all of the numeric codes with the corresponding descriptions from the FMT file.

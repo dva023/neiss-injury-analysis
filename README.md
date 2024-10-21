@@ -30,6 +30,8 @@ Here are some of the key notebooks/scripts included in the project:
   - `create_new_fields.py`: Generate new field names by extracting information from the `narrative` fields.
   - `generate_new_fields.py`: Generate new fields for each data record using AI models, append the fields by the end of columns.
 
+For both the `create_new_fields.py` and `generate_new_fields.py`scripts, you need to copy `.env.example` to `.env` and add your API tokens that you retrieved from each platform.
+
 ## Data
 
 - `consolidated_cleaned_neiss_2014_2023.csv`

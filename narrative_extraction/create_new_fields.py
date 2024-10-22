@@ -6,7 +6,7 @@ import json
 from collections import Counter
 from typing import Dict, List
 
-from libs.constants import (
+from constants import (
     MODEL_CLAUDE,
     MODEL_GEMINI,
     MODEL_GPT_4,
@@ -14,7 +14,7 @@ from libs.constants import (
     MODEL_LOCAL,
     PROMPT_CREATE_NEW_FIELDS,
 )
-from libs.gen_model import send_message
+from gen_model import send_message
 
 
 def split_samples(filename: str, num_chunks: int) -> List[Dict]:

@@ -3,17 +3,16 @@ import os
 
 import anthropic
 import google.generativeai as genai
-from dotenv import load_dotenv
-from ollama import Client as OllamaClient
-from openai import OpenAI
-
-from .constants import (
+from constants import (
     MODEL_CLAUDE,
     MODEL_GEMINI,
     MODEL_GPT_4,
     MODEL_GPT_4_MINI,
     MODEL_LOCAL,
 )
+from dotenv import load_dotenv
+from ollama import Client as OllamaClient
+from openai import OpenAI
 
 load_dotenv()
 

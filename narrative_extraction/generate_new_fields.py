@@ -1,12 +1,13 @@
 """
 Processes the dataset to generate new fields for each data record using AI models.
 """
+
 import csv
 import multiprocessing
 from concurrent.futures import ThreadPoolExecutor
 from typing import Dict, List
 
-from libs.constants import (
+from constants import (
     MODEL_CLAUDE,
     MODEL_GEMINI,
     MODEL_GPT_4,
@@ -15,7 +16,7 @@ from libs.constants import (
     NEW_COLUMN_FIELDS,
     PROMPT_EXTRACT_FIELDS,
 )
-from libs.gen_model import send_message
+from gen_model import send_message
 
 
 def split_samples(filename: str, num_chunks: int) -> List[Dict]:

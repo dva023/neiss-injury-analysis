@@ -18,6 +18,7 @@ cd neiss-injury-analysis
 python -m venv .venv # create virtual env
 source .venv/bin/activate # activate the virtual env
 pip install -r requirements.txt
+flask run # to run the server
 ```
 
 ## Scripts

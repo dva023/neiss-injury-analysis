@@ -24,11 +24,12 @@ pip install -r requirements.txt
 
 Here are some of the key notebooks/scripts included in the project:
 
-- `data_cleaning/NEISS_data_cleaning.ipynb`: Notebook for cleaning the raw NEISS data.
+- `notebooks/NEISS_data_cleaning.ipynb`: Notebook for cleaning the raw NEISS data.
 - `narrative_extraction/`:
   - `data_processor.py`: Replace numeric codes with their corresponding descriptions and dump to a new CSV file.
   - `create_new_fields.py`: Generate new field names by extracting information from the `narrative` fields.
   - `generate_new_fields.py`: Generate new fields for each data record using AI models, append the fields by the end of columns.
+- `notebooks/DVA_PROJECT_TEST.ipynb`: Notebook for building workcloud and XGBoost training.
 
 For both the `create_new_fields.py` and `generate_new_fields.py`scripts, you need to copy `.env.example` to `.env` and add your API tokens that you retrieved from each platform.
 

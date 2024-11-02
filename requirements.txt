@@ -12,3 +12,7 @@ python-dotenv>=1.0.0
 werkzeug>=3.0.0
 click>=8.1.7
 blinker>=1.7.0
+scikit-learn>=1.5.2
+xgboost>=2.1.2
+wordcloud>=1.9.3
+nltk>=3.9.1

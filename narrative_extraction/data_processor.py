@@ -84,6 +84,8 @@ def process_neiss_data(input_file, output_file, keep_original=True, chunk_size=1
 
 
 if __name__ == "__main__":
-    input_file = "./data/consolidated_cleaned_neiss_2014_2023.csv"
-    output_file = "./data/code_replaced_neiss_2014_2023.csv"
+    # input_file = "./data/consolidated_cleaned_neiss_2014_2023.csv"
+    # output_file = "./data/code_replaced_neiss_2014_2023.csv"
+    input_file = "./data/neiss_10p_sample.csv"
+    output_file = "./data/neiss_10p_sample_with_text.csv"
     process_neiss_data(input_file, output_file, False)

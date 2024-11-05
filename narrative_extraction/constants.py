@@ -43,14 +43,9 @@ NEW_COLUMN_FIELDS = """
   "example": "From '12YR F FELL ON STAIRSDX CHI', extract 'FELL'",
 },
 {
-  "column_name": "location_of_injury",
-  "extraction": "Identify and extract phrases that indicate where the injury occurred, such as 'at home', 'at school', etc.",
-  "example": "From '83YOF WITH STRAIN TO NECK AFTER FALLING DOWN THREE STEPS', extract 'STEPS'.",
-},
-{
-  "column_name": "injury_type",
-  "extraction": "Use keywords to categorize the type of injury, which might include 'fracture', 'laceration', 'burn', 'strain', etc.",
-  "example": "From '8 YOM WITH ELECTRICAL BURN FROM STICKING PAPER CUP INTO ELECTRICALOUTLET DXBURNS FINGER', extract 'ELECTRICAL BURN'.",
+  "column_name": "object_involved",
+  "extraction": "Identify objects or items involved in the injury by looking for keywords such as 'knife', 'table', 'glass door', etc.",
+  "example": "From '24 YR OLD MALE PUNCHED GLASS DOOR IN ANGER AND LAC WRIST WITH TENDON INJ', extract 'GLASS DOOR'",
 },
 {
   "column_name": "activity_at_injury",
@@ -65,7 +60,7 @@ You are tasked with extracting information from a narrative field to generate 4 
 Here is the data record you will be working with:
 {data}
 
-Your task is to extract information for the following 4 new fields:
+Your task is to extract information for the following 3 new fields:
 
 {columns}
 
@@ -74,26 +69,23 @@ If any information is unclear or missing for a particular field, use "unknown" a
 Examples:
 1. For the narrative "12YR F FELL ON STAIRS DX CHI":
    - injury_mechanism: "fell"
-   - location_of_injury: "stairs"
-   - injury_type: "chi" (Closed Head Injury)
+   - object_involved: "stairs"
    - activity_at_injury: "unknown"
 
 2. For the narrative "8 YOM WITH ELECTRICAL BURN FROM STICKING PAPER CUP INTO ELECTRICAL OUTLET DX BURNS FINGER":
    - injury_mechanism: "sticking object into outlet"
-   - location_of_injury: "unknown"
-   - injury_type: "electrical burn"
+   - object_involved: "electrical burn"
    - activity_at_injury: "sticking paper cup into electrical outlet"
 
 Remember to focus only on the information provided in the given narrative. Do not make assumptions or add information that is not explicitly stated or strongly implied in the text.
 
 
-Provide your output in the following JSON format:
+Provide your output in the following JSON format with all lowercases:
 
 <output>
 {{
     "injury_mechanism": "xxx",
-    "location_of_injury": "xxx",
-    "injury_type": "xxx",
+    "object_involved": "xxx",
     "activity_at_injury": "xxx"
 }}
 </output>

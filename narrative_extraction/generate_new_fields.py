@@ -1,5 +1,5 @@
 """
-Processes the dataset to generate new fields for each data record using AI models.
+Processes the dataset to generate new fields for each data record using LLM models.
 """
 
 import csv
@@ -48,7 +48,7 @@ def process_chunk(chunk: List[Dict], model_name: str) -> List[Dict]:
 
 
 def main():
-    filename = "./data/code_replaced_neiss_2014_2023_1000_samples.csv"
+    filename = "./data/neiss_10p_sample_with_text.csv"
     with open(filename, "r") as f:
         reader = csv.DictReader(f)
         data = list(reader)
@@ -72,7 +72,7 @@ def main():
     flattened_results = [item for sublist in results for item in sublist]
 
     # Write the results to a CSV file
-    output_file = f"neiss_with_new_fields_{model_name.replace('-', '_')}.csv"
+    output_file = f"neiss_10p_sample_with_text_{model_name.replace('-', '_')}.csv"
     fieldnames = flattened_results[0].keys()
 
     with open(f"./data/{output_file}", "w", newline="") as f:

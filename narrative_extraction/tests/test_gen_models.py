@@ -1,15 +1,14 @@
-import json
 import unittest
 from unittest.mock import MagicMock, patch
 
-from libs.constants import (
-    CLAUDE_MODEL_NAME,
-    GEMINI_MODEL_NAME,
-    GPT_4_MINI_MODEL_NAME,
-    GPT_4_MODEL_NAME,
-    LOCAL_MODEL_NAME,
+from constants import (
+    MODEL_CLAUDE,
+    MODEL_GEMINI,
+    MODEL_GPT_4,
+    MODEL_GPT_4_MINI,
+    MODEL_LOCAL,
 )
-from libs.gen_model import (
+from gen_model import (
     call_claude_api,
     call_gemini_api,
     call_local_api,
@@ -28,20 +27,20 @@ class TestAPICalls(unittest.TestCase):
         mock_completion.choices[0].message.content = '{"response": "Test response"}'
         mock_client.chat.completions.create.return_value = mock_completion
 
-        result = call_openai_api(GPT_4_MINI_MODEL_NAME, "Test message")
+        result = call_openai_api(MODEL_GPT_4, "Test message")
         self.assertEqual(result, '{"response": "Test response"}')
         mock_client.chat.completions.create.assert_called_once()
 
     @patch("libs.gen_model.vertexai")
     @patch("libs.gen_model.GenerativeModel")
-    def test_call_gemini_api(self, mock_generative_model, mock_vertexai):
+    def test_call_gemini_api(self, mock_generative_model):
         mock_model = MagicMock()
         mock_generative_model.return_value = mock_model
         mock_response = MagicMock()
         mock_response.text = '{"response": "Test response"}'
         mock_model.generate_content.return_value = [mock_response]
 
-        result = call_gemini_api(GEMINI_MODEL_NAME, "Test message")
+        result = call_gemini_api(MODEL_GEMINI, "Test message")
         self.assertEqual(result, '{"response": "Test response"}')
         mock_model.generate_content.assert_called_once()
 
@@ -53,7 +52,7 @@ class TestAPICalls(unittest.TestCase):
         mock_message.content = '{"response": "Test response"}'
         mock_client.messages.create.return_value = mock_message
 
-        result = call_claude_api(CLAUDE_MODEL_NAME, "Test message")
+        result = call_claude_api(MODEL_CLAUDE, "Test message")
         self.assertEqual(result, '{"response": "Test response"}')
         mock_client.messages.create.assert_called_once()
 
@@ -65,7 +64,7 @@ class TestAPICalls(unittest.TestCase):
             "message": {"content": '{"response": "Test response"}'}
         }
 
-        result = call_local_api(LOCAL_MODEL_NAME, "Test message")
+        result = call_local_api(MODEL_LOCAL, "Test message")
         self.assertEqual(result, '{"response": "Test response"}')
         mock_client.chat.assert_called_once()
 
@@ -80,17 +79,17 @@ class TestAPICalls(unittest.TestCase):
         mock_local.return_value = '{"response": "Local response"}'
 
         self.assertEqual(
-            send_message(GPT_4_MINI_MODEL_NAME, "Test"),
+            send_message(MODEL_GPT_4_MINI, "Test"),
             '{"response": "OpenAI response"}',
         )
         self.assertEqual(
-            send_message(GEMINI_MODEL_NAME, "Test"), '{"response": "Gemini response"}'
+            send_message(MODEL_GEMINI, "Test"), '{"response": "Gemini response"}'
         )
         self.assertEqual(
-            send_message(CLAUDE_MODEL_NAME, "Test"), '{"response": "Claude response"}'
+            send_message(MODEL_CLAUDE, "Test"), '{"response": "Claude response"}'
         )
         self.assertEqual(
-            send_message(LOCAL_MODEL_NAME, "Test"), '{"response": "Local response"}'
+            send_message(MODEL_LOCAL, "Test"), '{"response": "Local response"}'
         )
 
         with self.assertRaises(ValueError):

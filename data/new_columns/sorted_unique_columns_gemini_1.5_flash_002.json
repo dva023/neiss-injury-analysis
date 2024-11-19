@@ -1,0 +1,218 @@
+[
+  {
+    "column_name": "InjuryMechanism",
+    "extraction": "Identify keywords and phrases describing how the injury occurred (e.g., \"fell,\" \"struck by,\" \"cut by,\" \"collision\").  Use regular expressions to capture variations and contextual clues.",
+    "example": "From '82 YM TRIPPED AND FELL DOWN 45 STEPS AT CHURCH DX SCALP LAC', extract 'tripped and fell'",
+    "frequency": 8
+  },
+  {
+    "column_name": "Activity",
+    "extraction": "Extract the activity the individual was engaged in at the time of the injury (e.g., \"playing,\" \"working,\" \"sports,\" \"household chores\").",
+    "example": "From '14 YOM FELL AGAINST A DOOR AT CAMP DX TOOTH FX', extract 'playing at camp'",
+    "frequency": 6
+  },
+  {
+    "column_name": "InjuryLocation",
+    "extraction": "Extract the location where the injury happened (e.g., \"home,\" \"school,\" \"work,\" \"street\"). Consider using a gazetteer or location database for more accurate extraction.",
+    "example": "From '82 YM TRIPPED AND FELL DOWN 45 STEPS AT CHURCH DX SCALP LAC', extract 'church'",
+    "frequency": 6
+  },
+  {
+    "column_name": "AdditionalDetails",
+    "extraction": "Capture any additional details provided in the narrative that are not already captured in other fields, such as the activity being performed, the type of surface involved, or the presence of other people.",
+    "example": "From '82 YM TRIPPED AND FELL DOWN 45 STEPS AT CHURCH DX SCALP LAC', extract '45 steps'",
+    "frequency": 5
+  },
+  {
+    "column_name": "ObjectInvolved",
+    "extraction": "Identify the object or item directly involved in the injury (e.g., \"basketball,\" \"phone charger,\" \"door frame,\" etc.). This often requires careful parsing of the narrative to distinguish between the activity and the object.",
+    "example": "From '14 YO FEMALE HIT IN EUE WITH PHONE CHARGER DX BLUNT EYE TRAUMA', extract 'PHONE CHARGER'",
+    "frequency": 3
+  },
+  {
+    "column_name": "PatientAgeGroup",
+    "extraction": "Categorize the age into groups (e.g., \"child,\" \"adult,\" \"elderly\") based on age ranges defined in advance. This will allow for easier analysis of injury patterns across different age groups.",
+    "example": "From '82 YM TRIPPED AND FELL DOWN 45 STEPS AT CHURCH DX SCALP LAC', extract 'elderly'",
+    "frequency": 3
+  },
+  {
+    "column_name": "AgeGroup",
+    "extraction": "Categorize the age into groups (e.g., \"child,\" \"adult,\" \"elderly\") for easier analysis and aggregation.",
+    "example": "From '4 YOF WAS PLAYING OUTSIDE  THE NEIGHBORS DOG JUMPED THE FENCE  BITHER ON HER RT BUTTOCK LAC DX LAC  PUNCTURE WOUND OF RT BUTTOCK', extract 'child'",
+    "frequency": 2
+  },
+  {
+    "column_name": "InjurySeverity",
+    "extraction": "Categorize the injury severity based on keywords and phrases in the narrative (e.g., \"minor,\" \"moderate,\" \"severe\"). This requires careful consideration of medical terminology and potential variations.",
+    "example": "From '3 YOM FELL OFF MOMS BED  HIT CORNER OF CRIB LAST NIGHT DX CLOSED HEADINJURY WITHOUT LOSS OF CONSCIOUSNESS', extract 'minor'",
+    "frequency": 2
+  },
+  {
+    "column_name": "SurfaceType",
+    "extraction": "Extract the type of surface involved in the injury (e.g., \"carpet,\" \"concrete,\" \"grass\").",
+    "example": "From '6MOM FELL OFF BED HIT HEAD AGAINST CARPETED FLOOR DX CHI', extract 'carpeted floor'",
+    "frequency": 2
+  },
+  {
+    "column_name": "TimeSinceInjury",
+    "extraction": "Extract the time elapsed between the injury and arrival at the treatment facility. This requires pattern recognition and may involve time expressions.",
+    "example": "From '19 YOM PUNCHED...1 HOUR PRIOR TO ARRIVAL...', extract '1 hour'",
+    "frequency": 2
+  },
+  {
+    "column_name": "TreatmentSetting",
+    "extraction": "Identify the location where the treatment was administered (e.g., \"hospital,\" \"clinic,\" \"home\").",
+    "example": "From '14 YOM FELL AGAINST A DOOR AT CAMP DX TOOTH FX', extract 'camp'",
+    "frequency": 2
+  },
+  {
+    "column_name": "additional_details",
+    "extraction": "Capture any additional details that provide further context, such as the activity preceding the injury or the type of object involved. This is a free-text field that may require further cleaning and categorization in subsequent steps.",
+    "example": "From '21MOM JUMPED OFF OF COUCHING LANDING ON FLOOR HAS NOT BEEN MOVING ARM DX CLOSED LEFT HUMERAL FX ***', extract 'jumped off couch'",
+    "frequency": 2
+  },
+  {
+    "column_name": "injury_mechanism",
+    "extraction": "Use keyword matching and pattern recognition to identify common injury mechanisms like 'fell', 'cut', 'struck by', 'impact', etc.  Consider variations and synonyms (e.g., 'tripped' for 'fell').",
+    "example": "From '12YR F FELL ON STAIRSDX CHI', extract 'fell'",
+    "frequency": 2
+  },
+  {
+    "column_name": "location_of_incident",
+    "extraction": "Extract the location where the injury occurred (e.g., 'home', 'school', 'work', 'sports field').  Handle variations and abbreviations.",
+    "example": "From 'TREATED/EXAMINED AND RELEASED', 'HOME', 'NO/?', 'STAIRS OR STEPS', '', '', 'No/Unk', 'No/Unk', '12YR F FELL ON STAIRSDX CHI', extract 'home'",
+    "frequency": 2
+  },
+  {
+    "column_name": "object_involved",
+    "extraction": "Identify the object directly involved in the injury (e.g., 'stairs', 'knife', 'car', 'electrical outlet').",
+    "example": "From '8 YOM WITH ELECTRICAL BURN FROM STICKING PAPER CUP INTO ELECTRICALOUTLET DXBURNS FINGER CARDIAC ARYTHMIAELECTRICAL BURN', extract 'electrical outlet'",
+    "frequency": 2
+  },
+  {
+    "column_name": "AdditionalDiagnosis",
+    "extraction": "Extract any additional diagnoses mentioned in the narrative that are not captured in the existing 'Diagnosis' fields. This often involves identifying secondary injuries or related conditions.",
+    "example": "From '14YOM WAS IN WEIGHT LIFTING CLASS AND FELL DURING AN EXERCISE AND HIT HIS R EAR ON A WEIGHT DX EAR LAC FINGER FX AND EAR ABRASION', extract 'EAR ABRASION'",
+    "frequency": 1
+  },
+  {
+    "column_name": "AdditionalNotes",
+    "extraction": "Capture any additional relevant information not captured in other fields. This is a catch-all for information that doesn't fit neatly into other categories.",
+    "example": "From '33YOM PRESENTS AFTER AN ATV ACCIDENT HELMET LOC PT DOES NOT REMEMBER THE EVENTS...', extract 'Helmet LOC'",
+    "frequency": 1
+  },
+  {
+    "column_name": "AdditionalSymptoms",
+    "extraction": "Identify any additional symptoms mentioned in the narrative beyond the primary diagnosis (e.g., \"headache,\" \"nausea,\" \"dizziness,\" etc.).",
+    "example": "From '75YOF SLIP AND FALL ON WET FLOOR 5 DAYS PRIOR AND CO HITTING HEAD ON FLOOR CO HEADACHEDX FALL', extract 'HEADACHE'",
+    "frequency": 1
+  },
+  {
+    "column_name": "DiagnosisSpecificity",
+    "extraction": "Extract more specific details from the diagnosis, if available. For example, instead of just 'LACERATION', extract 'SCALP LACERATION'. This requires careful consideration of medical terminology and potential variations.",
+    "example": "From '82 YM TRIPPED AND FELL DOWN 45 STEPS AT CHURCH DX SCALP LAC', extract 'SCALP LACERATION'",
+    "frequency": 1
+  },
+  {
+    "column_name": "EnvironmentalContext",
+    "extraction": "Extract information about the environment where the injury occurred (e.g., \"indoors,\" \"outdoors,\" \"wet surface,\" \"dark conditions\"). This can provide additional context for injury analysis.",
+    "example": "From '3 YOM FELL OFF MOMS BED  HIT CORNER OF CRIB LAST NIGHT DX CLOSED HEADINJURY WITHOUT LOSS OF CONSCIOUSNESS', extract 'indoors'",
+    "frequency": 1
+  },
+  {
+    "column_name": "InjuryLocationDetail",
+    "extraction": "Extract more precise location details beyond the existing 'Body_Part' field. This could include specifying left/right side, specific finger/toe, etc.  Use regular expressions and pattern matching to identify these details.",
+    "example": "From '9 YOF JUMPED OFF HER BUNK BED INJURED L GREAT TOE DX SPRAIN', extract 'LEFT GREAT TOE'",
+    "frequency": 1
+  },
+  {
+    "column_name": "LocationOfInjury",
+    "extraction": "Identify the specific location where the injury occurred (e.g., \"home,\" \"work,\" \"school,\" \"sports field\").",
+    "example": "From '14 YOM FELL AGAINST A DOOR AT CAMP DX TOOTH FX', extract 'camp'",
+    "frequency": 1
+  },
+  {
+    "column_name": "LocationType",
+    "extraction": "Categorize the location into broader types (e.g., home, school, sports, workplace, other) for easier analysis and aggregation. This can be derived from the 'Location' column but adds a categorical variable for easier analysis.",
+    "example": "From '11YOM EVAL OF HA  NAUSEA SINCE BEING HIT IN THE HD IN GYM CLASS WHILE PLAYING DODGE BALL ARD 1020  MOM STS SCHOOL CALLED HER WHEN PT COMPLAINED OF NAUSEA DX INJURY OF HEAD HA', extract 'School'",
+    "frequency": 1
+  },
+  {
+    "column_name": "PatientActivity",
+    "extraction": "Extract the activity the patient was engaged in at the time of the injury (e.g., \"playing,\" \"walking,\" \"driving,\" \"working\"). This often requires careful parsing of the narrative.",
+    "example": "From '16YOF CO R KNEE PAIN ONSET 6 DAYS AGO AFTER TRACK MEET PT STATES SHE DID HURDLES AND LONG JUMP AT HOME STARTED HAVING PAIN DX R KNEE INJURY', extract 'track meet, hurdles, long jump'",
+    "frequency": 1
+  },
+  {
+    "column_name": "PrecipitatingFactor",
+    "extraction": "Identify factors that contributed to the injury (e.g., \"anger,\" \"alcohol use,\" \"fatigue\"). This requires careful reading and interpretation of the narrative.",
+    "example": "From '19 YOM PUNCHED THE HARD SURFACE OF HIS COUCH IN ANGER AFTER ARGUING WITH FRIENDS OVER A VIDEO GAME...', extract 'anger'",
+    "frequency": 1
+  },
+  {
+    "column_name": "PreexistingConditions",
+    "extraction": "Identify any pre-existing medical conditions mentioned in the narrative that might have contributed to the injury or its severity (e.g., \"seizure,\" \"heart condition\"). This requires careful keyword matching and medical terminology recognition.",
+    "example": "From '20 YOF SUFFERED A SEIZURE AROUND 7 PM CAUSING HER TO FALL OFF TOILET STRIKING FACE ON BATHTUB DX UPPER LOWER LIP LAC', extract 'seizure'",
+    "frequency": 1
+  },
+  {
+    "column_name": "ProductInvolvement",
+    "extraction": "Extract the specific product involved in the injury, if mentioned. This could be a more detailed version of the existing 'Product_1', 'Product_2', etc. fields, capturing information not easily categorized into existing product codes.",
+    "example": "From '30YF ACC CUT LT MIDDLE FINGER ON A KNIFE CUTTING MEATLAC', extract 'knife'",
+    "frequency": 1
+  },
+  {
+    "column_name": "ProtectiveEquipment",
+    "extraction": "Determine if protective equipment was used (e.g., \"wearing helmet,\" \"not wearing seatbelt,\" \"no eye protection\").",
+    "example": "From '35YOM USING PNEUMATIC NAIL GUN NOT WEARING EYE PROTECTION SHO GHUN FELT PART OF DRYWALL DUSTY  BLOWN BACK INTO EYE FBCONJ ACUTE L EYE', extract 'not wearing eye protection'",
+    "frequency": 1
+  },
+  {
+    "column_name": "SecondaryInjury",
+    "extraction": "Identify any secondary injuries mentioned in the narrative (e.g., concussion, laceration). This requires pattern recognition and medical terminology knowledge.",
+    "example": "From '57YOF WAS RIDING A HORSE AND FELL OFF HIT HEAD ON STEPS DX HEAD INJURY SYNCOPE', extract 'syncope'",
+    "frequency": 1
+  },
+  {
+    "column_name": "SpecificDiagnosis",
+    "extraction": "Extract the specific diagnosis mentioned in the narrative, if available, to supplement the existing 'Diagnosis' field. This could involve using named entity recognition or keyword matching.",
+    "example": "From '35YOM USING PNEUMATIC NAIL GUN NOT WEARING EYE PROTECTION SHO GHUN FELT PART OF DRYWALL DUSTY  BLOWN BACK INTO EYE FBCONJ ACUTE L EYE', extract 'FBCONJ ACUTE L EYE'",
+    "frequency": 1
+  },
+  {
+    "column_name": "Surface",
+    "extraction": "Extract the surface or object the patient contacted during the injury (e.g., \"concrete\", \"ground\", \"bed\", \"metal ladder\", etc.).",
+    "example": "From '13YOF WAS RUNNING AND SLIPPED STRIKING HEAD AND SHOULDER ON CONCRETE DX CONCUSSION SHOULDER CONTUSION', extract 'concrete'",
+    "frequency": 1
+  },
+  {
+    "column_name": "diagnosis_details",
+    "extraction": "Extract more specific details from the diagnosis field, such as the affected bone or body part in fractures or the type of laceration. This may require medical knowledge or a mapping to a more detailed diagnosis code.",
+    "example": "From 'DX CLOSED LEFT HUMERAL FX ***', extract 'closed left humeral fracture'",
+    "frequency": 1
+  },
+  {
+    "column_name": "patient_action",
+    "extraction": "Identify the action the patient was performing at the time of the injury. This could involve keywords related to activities, movements, or interactions with objects. This often requires contextual understanding.",
+    "example": "From '39YOF FELT KNEE POP WHILE PUTTING ON SHOES DX INTERNAL DERANGEMENT OF KNEE', extract 'PUTTING ON SHOES'",
+    "frequency": 1
+  },
+  {
+    "column_name": "patient_activity",
+    "extraction": "Identify the activity the patient was engaged in at the time of the injury (e.g., 'running', 'playing', 'walking', 'sleeping').",
+    "example": "From '16 YOM INJURED ANKLE WHILE RUNNING DX ANKLE SPRAIN', extract 'running'",
+    "frequency": 1
+  },
+  {
+    "column_name": "surface_of_impact",
+    "extraction": "Identify the surface the injured person impacted (e.g., 'stairs', 'floor', 'ground', 'carpet').  This often requires contextual understanding.",
+    "example": "From '12YR F FELL ON STAIRSDX CHI', extract 'stairs'",
+    "frequency": 1
+  },
+  {
+    "column_name": "time_since_injury",
+    "extraction": "Extract information about the time elapsed between the injury and treatment. Look for keywords and phrases indicating timeframes such as 'since', 'ago', 'over the past', 'today', etc.",
+    "example": "From '15YOM WITH TAILBONE PAIN SINCE 2 WEEKS AGO BUT WORSENING OVER THE PAST 3 DAYS', extract '2 WEEKS'",
+    "frequency": 1
+  }
+]

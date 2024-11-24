@@ -31,8 +31,6 @@ Primary data files required for this project:
 
 ## Development Process
 
-![dev-process](./images/dev-process.png)
-
 Our analysis follows these key steps:
 
 1. **Data Aggregation & Cleaning**

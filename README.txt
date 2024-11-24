@@ -1,7 +1,7 @@
 NEISS INJURY ANALYSIS
 =====================
 
-Repository: github.com/dva023/neiss-injury-analysis/
+Repository: <https://github.com/dva023/neiss-injury-analysis/>
 
 DESCRIPTION
 ----------
@@ -49,7 +49,7 @@ Running the Workbook:
 
 DEMO VIDEO
 ----
-Tutorial video available at: youtube.com/watch?v=WvGWpX0jjmU
+Tutorial video available at: <https://youtube.com/watch?v=WvGWpX0jjmU>
 
 TROUBLESHOOTING
 --------------

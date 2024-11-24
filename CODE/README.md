@@ -1,4 +1,4 @@
-# NEISS Injury Analysis
+# README for developers
 
 ## Table of Contents
 
